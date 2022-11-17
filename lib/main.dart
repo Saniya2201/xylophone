@@ -13,15 +13,21 @@ class XylophoneApp extends StatelessWidget {
     );
   }
 
-  Expanded BuildKey({int soundNumber = 0, required Color colorName}) {
+  Expanded BuildKey({int soundNumber = 0, required Color colorName, double width = 400}) {
     return Expanded(
-      child: MaterialButton(
-        onPressed: () {
-          PlaySound(soundNumber);
-        },
-        minWidth: double.infinity,
-        enableFeedback: false,
-        color: colorName,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Center(
+          child: MaterialButton(
+            height: double.infinity,
+            onPressed: () {
+              PlaySound(soundNumber);
+            },
+            minWidth: width,
+            enableFeedback: false,
+            color: colorName,
+          ),
+        ),
       ),
     );
   }
@@ -29,21 +35,29 @@ class XylophoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                BuildKey(soundNumber:1, colorName:Colors.red),
-                BuildKey(soundNumber:2, colorName:Colors.orange),
-                BuildKey(soundNumber:3, colorName:Colors.yellow),
-                BuildKey(soundNumber:4, colorName:Colors.green),
-                BuildKey(soundNumber:5, colorName:Colors.blue),
-                BuildKey(soundNumber:6, colorName:Colors.indigo),
-                BuildKey(soundNumber:7, colorName:Colors.purple.shade800),
-              ],
+      home: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/background.png'),
+            fit: BoxFit.cover
+          ),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  BuildKey(soundNumber:1, colorName:Colors.red, width: 390),
+                  BuildKey(soundNumber:2, colorName:Colors.orange, width: 360),
+                  BuildKey(soundNumber:3, colorName:Colors.yellow, width: 330),
+                  BuildKey(soundNumber:4, colorName:Colors.green, width: 300),
+                  BuildKey(soundNumber:5, colorName:Colors.blue, width: 270),
+                  BuildKey(soundNumber:6, colorName:Colors.indigo, width: 240),
+                  BuildKey(soundNumber:7, colorName:Colors.purple.shade800, width: 210),
+                ],
+              ),
             ),
           ),
         ),
