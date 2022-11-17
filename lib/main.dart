@@ -13,63 +13,38 @@ class XylophoneApp extends StatelessWidget {
     );
   }
 
+  Expanded BuildKey({int soundNumber = 0, required Color colorName}) {
+    return Expanded(
+      child: MaterialButton(
+        onPressed: () {
+          PlaySound(soundNumber);
+        },
+        minWidth: double.infinity,
+        enableFeedback: false,
+        color: colorName,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
-          child: Column(
-            children: [
-              MaterialButton(
-                onPressed: () {
-                  PlaySound(1);
-                  },
-                enableFeedback: false,
-                color: Colors.red,
-              ),
-              MaterialButton(
-                onPressed: () {
-                  PlaySound(2);
-                },
-                enableFeedback: false,
-                color: Colors.orange,
-              ),
-              MaterialButton(
-                onPressed: () {
-                  PlaySound(3);
-                },
-                enableFeedback: false,
-                color: Colors.yellow,
-              ),
-              MaterialButton(
-                onPressed: () {
-                 PlaySound(4);
-                },
-                enableFeedback: false,
-                color: Colors.green,
-              ),
-              MaterialButton(
-                onPressed: () {
-                 PlaySound(5);
-                },
-                enableFeedback: false,
-                color: Colors.blue,
-              ),
-              MaterialButton(
-                onPressed: () {
-                  PlaySound(6);
-                },
-                enableFeedback: false,
-                color: Colors.indigo,
-              ),
-              MaterialButton(
-                onPressed: () {
-                  PlaySound(7);
-                },
-                enableFeedback: false,
-                color: Colors.purple.shade900,
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                BuildKey(soundNumber:1, colorName:Colors.red),
+                BuildKey(soundNumber:2, colorName:Colors.orange),
+                BuildKey(soundNumber:3, colorName:Colors.yellow),
+                BuildKey(soundNumber:4, colorName:Colors.green),
+                BuildKey(soundNumber:5, colorName:Colors.blue),
+                BuildKey(soundNumber:6, colorName:Colors.indigo),
+                BuildKey(soundNumber:7, colorName:Colors.purple.shade800),
+              ],
+            ),
           ),
         ),
       ),
