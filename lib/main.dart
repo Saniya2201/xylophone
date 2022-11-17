@@ -6,6 +6,13 @@ void main() => runApp(XylophoneApp());
 class XylophoneApp extends StatelessWidget {
   const XylophoneApp({Key? key}) : super(key: key);
 
+  void PlaySound(int soundNumber) {
+    final player = AudioPlayer();
+    player.play(
+      AssetSource('note$soundNumber.wav'),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,63 +22,49 @@ class XylophoneApp extends StatelessWidget {
             children: [
               MaterialButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource('note1.wav'),
-                  );
-                },
+                  PlaySound(1);
+                  },
                 enableFeedback: false,
                 color: Colors.red,
               ),
               MaterialButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource('note2.wav'),
-                  );
+                  PlaySound(2);
                 },
                 enableFeedback: false,
                 color: Colors.orange,
               ),
               MaterialButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource('note3.wav'),
-                  );
+                  PlaySound(3);
                 },
                 enableFeedback: false,
                 color: Colors.yellow,
               ),
               MaterialButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource('note4.wav'),
-                  );
+                 PlaySound(4);
                 },
                 enableFeedback: false,
                 color: Colors.green,
               ),
               MaterialButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource('note5.wav'),
-                  );
+                 PlaySound(5);
                 },
                 enableFeedback: false,
                 color: Colors.blue,
               ),
               MaterialButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource('note6.wav'),
-                  );
+                  PlaySound(6);
                 },
                 enableFeedback: false,
                 color: Colors.indigo,
               ),
               MaterialButton(
                 onPressed: () {
-                  final player = AudioPlayer();
-                  player.play(AssetSource('note2.wav'),
-                  );
+                  PlaySound(7);
                 },
                 enableFeedback: false,
                 color: Colors.purple.shade900,
